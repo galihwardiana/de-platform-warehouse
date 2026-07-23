@@ -5,7 +5,7 @@ from datetime import datetime
 class BigQueryLoader:
     def __init__(self, sink: str = "bq", dataset_id: str = None):
         self.sink = sink
-        self.output_dir = "/Users/galih/personal/daily-weather/result"
+        self.output_dir = "/Users/galih/personal/de-platform-warehouse/result"
         
         if self.sink == "local":
             os.makedirs(self.output_dir, exist_ok=True)
