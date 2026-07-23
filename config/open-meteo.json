@@ -1,0 +1,54 @@
+{
+    "api_name": "open-meteo",
+    "method": "GET",
+    "base_url": "https://api.open-meteo.com/v1/forecast",
+    "targets_file": "config/cities.json",
+    "pipelines": {
+        "daily": {
+            "bq_table": "daily_weather",
+            "time_field": "date",
+            "time_field_type": "DATE",
+            "field_type_overrides": {
+                "sunrise": "TIMESTAMP",
+                "sunset": "TIMESTAMP"
+            },
+            "request_params": {
+                "forecast_days": 7,
+                "daily": [
+                    "temperature_2m_min",
+                    "temperature_2m_mean",
+                    "temperature_2m_max",
+                    "apparent_temperature_min",
+                    "apparent_temperature_mean",
+                    "apparent_temperature_max",
+                    "precipitation_probability_min",
+                    "precipitation_probability_mean",
+                    "precipitation_probability_max",
+                    "sunrise",
+                    "sunset",
+                    "uv_index_max",
+                    "uv_index_clear_sky_max",
+                    "rain_sum",
+                    "showers_sum"
+                ],
+                "timezone": "UTC"
+            }
+        },
+        "hourly": {
+            "bq_table": "hourly_weather",
+            "time_field": "timestamp",
+            "time_field_type": "TIMESTAMP",
+            "field_type_overrides": {},
+            "request_params": {
+                "forecast_days": 1,
+                "hourly": [
+                    "temperature_2m",
+                    "relative_humidity_2m",
+                    "rain",
+                    "showers"
+                ],
+                "timezone": "UTC"
+            }
+        }
+    }
+}

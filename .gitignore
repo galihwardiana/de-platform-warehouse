@@ -1,0 +1,25 @@
+# Python / Virtual Environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment Variables & Secrets
+.env
+gle-playground-4d50a9c36214.json
+**/profiles.yml
+
+# Local Raw Data Outputs
+result/
+
+# IDE / Editor Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# dbt
+**/.user.yml
+dbt_packages/
+logs/
+target/

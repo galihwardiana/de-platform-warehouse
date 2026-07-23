@@ -1,0 +1,22 @@
+{
+    "Jakarta": {
+        "latitude": -6.2088,
+        "longitude": 106.8456
+    },
+    "Bandung": {
+        "latitude": -6.9175,
+        "longitude": 107.6191
+    },
+    "Yogyakarta": {
+        "latitude": -7.7956,
+        "longitude": 110.3695
+    },
+    "Surabaya": {
+        "latitude": -7.2575,
+        "longitude": 112.7521
+    },
+    "Malang": {
+        "latitude": -7.9666,
+        "longitude": 112.6326
+    }
+}

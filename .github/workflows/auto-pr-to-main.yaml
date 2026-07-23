@@ -1,0 +1,44 @@
+name: Open PR Dev to Main
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - development
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  create-pr:
+    if: github.event.pull_request.merged == true
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Create PR if one doesn't exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Check if an open PR already exists
+          existing=$(gh pr list \
+            --base main \
+            --head development \
+            --state open \
+            --json number \
+            --jq 'length')
+
+          if [ "$existing" -gt 0 ]; then
+            echo "PR already exists."
+            exit 0
+          fi
+
+          gh pr create \
+            --base main \
+            --head development \
+            --title "🚀 Release: Sync Development to Main" \
+            --body "Automatically created after merging into development."
