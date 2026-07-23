@@ -8,6 +8,7 @@ __pycache__/
 .env
 gle-playground-4d50a9c36214.json
 **/profiles.yml
+.pre-commit-config.yaml
 
 # Local Raw Data Outputs
 result/
